@@ -1,7 +1,7 @@
 use serde:: {Deserialize, Serialize}; 
 
 #[derive(Debug, Deserialize, Serialize)]
-#[derive(rename_all= "camelCase")]
+#[serde(rename_all= "camelCase")]
 pub struct RPCResponse { 
     pub jsonrpc: String, 
     pub result: Information, 
@@ -9,7 +9,7 @@ pub struct RPCResponse {
 }
 
 #[derive(Debug, Deserialize, Serialize)]
-#[derive(rename_all= "camelCase")]
+#[serde(rename_all= "camelCase")]
 pub struct Information {
     pub loaded: bool, 
     pub size: u64, 
