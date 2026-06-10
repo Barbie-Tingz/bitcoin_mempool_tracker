@@ -5,8 +5,16 @@ use std::collections::HashMap;
 #[serde(rename_all = "camelCase")]
 pub struct RPCResponse {
     pub jsonrpc: String, 
-    pub result: HashMap<String, Key>, 
+    pub result: Option<HashMap<String, Key>>, 
     pub id: u64,
+    pub error: Option<Error>,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Error {
+    pub code: i64, 
+    pub message: String, 
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -24,6 +32,7 @@ pub struct Key {
     pub fees: Fee,
     pub depends: Vec<String>,
     pub spentby: Vec<String>,
+    #[serde(rename = "bip125-replaceable")]
     pub bip125_replaceable: bool,
     pub unbroadcast: bool,
 }

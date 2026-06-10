@@ -4,8 +4,16 @@ use serde:: {Deserialize, Serialize};
 #[serde(rename_all= "camelCase")]
 pub struct RPCResponse { 
     pub jsonrpc: String, 
-    pub result: Information, 
+    pub result: Option<Information>, 
     pub id: u64, 
+    pub error: Option<Error>,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+#[serde(rename_all= "camelCase")]
+pub struct Error {
+    pub code: i32, 
+    pub message: String,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -15,7 +23,8 @@ pub struct Information {
     pub size: u64, 
     pub bytes: u64, 
     pub usage: u64, 
-    pub total_fee: f64, 
+    #[serde(rename = "total_fee")]
+    pub totalfee: f64, 
     pub maxmempool: u64, 
     pub mempoolminfee: f64,
     pub minrelaytxfee: f64, 
