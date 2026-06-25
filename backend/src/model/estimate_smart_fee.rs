@@ -1,5 +1,7 @@
 use serde:: {Serialize, Deserialize}; 
 
+// returns a fee rate estimate for a gicen confirmation target
+
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct RPCResponse { 

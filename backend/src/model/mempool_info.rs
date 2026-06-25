@@ -1,5 +1,7 @@
 use serde:: {Deserialize, Serialize}; 
 
+// returns general stats about the mempool (size, fees, etc.)
+
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(rename_all= "camelCase")]
 pub struct RPCResponse { 

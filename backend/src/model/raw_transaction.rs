@@ -1,5 +1,7 @@
 use serde:: {Serialize, Deserialize};
 
+// returns details of a specfic transaction by txid
+
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(rename_all="camelCase")]
 pub struct RPCResponse {

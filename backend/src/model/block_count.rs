@@ -1,5 +1,7 @@
 use serde:: {Deserialize, Serialize}; 
 
+// returns the current block height
+
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(rename_all= "camelCase")]
 pub struct RPCResponse {

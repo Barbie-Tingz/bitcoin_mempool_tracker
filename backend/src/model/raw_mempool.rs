@@ -1,6 +1,8 @@
 use serde:: {Serialize, Deserialize};
 use std::collections::HashMap;
 
+// returns all transactions currently in the mempool
+
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct RPCResponse {
