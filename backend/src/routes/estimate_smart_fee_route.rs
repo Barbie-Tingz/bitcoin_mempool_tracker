@@ -1,7 +1,7 @@
 use reqwest::{Client};
 use axum::{Router, routing::get};
 use axum::extract::{Json, State, Path};
-use crate::model::estimate_smart_fee; 
+use crate::model::estimate_smart_fee::RPCResponse; 
 
 const BITCOIN: &str = "http://127.0.0.1:8332";
 
@@ -10,7 +10,7 @@ pub fn route() -> Router {
     let app = Router::new(); // directs traffic 
     let state = Client::new(); 
 
-    app.route("/estimate_smart_fee/:target", get(estimate_smart_fee))
+    app.route("model/estimate_smart_fee/:target", get(estimate_smart_fee_route))
     .with_state(state) // method on the router that attaches shared data that handlers can use
 }
 
